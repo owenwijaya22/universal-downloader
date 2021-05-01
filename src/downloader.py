@@ -1,8 +1,8 @@
 import youtube_dl
 import json
 from time import sleep as s
-from PIL import ImageTk
 from tkinter import *
+from PIL import Image, ImageTk
 import sys
 import os
 
@@ -74,12 +74,14 @@ def get_mp4():
 def get_mp3():
     link = entry.get()
     options = {'noplaylist': True, 'format': 'bestaudio/[ext=mp3]/best'}
-    download(options,link)
+    download(options, link)
+
 
 def get_wav():
     link = entry.get()
     options = {'noplaylist': True, 'format': 'bestaudio/[ext=wav]/best'}
-    download(options,link)
+    download(options, link)
+
 
 def open_folder():
     os.startfile(os.getcwd())
@@ -114,19 +116,23 @@ def buttons():
 
 #application background image
 background_image = ImageTk.PhotoImage(
-    file=r"C:\Users\owenw\vscode\projects\Iproject\data\background1.jpg")
-background_label = Label(root, image=background_image)
-background_label.place(relwidth=1, relheight=1)
+    file=r"C:\Users\owenw\vscode\projects\Iproject\data\background1.png")
+background_label = Label(root, image=background_image, bd=0)
+background_label.place(x=0, y=0)
 #upper upper_frame
 upper_frame = Frame(root)
+upper_frame.place(relx=0.5,
+                  rely=0.1,
+                  relwidth=0.75,
+                  relheight=0.75,
+                  anchor='n')
 upper_frame_image = ImageTk.PhotoImage(
     file=r"C:\Users\owenw\vscode\projects\Iproject\data\background2.jpg")
 upper_frame_image_label = Label(upper_frame, image=upper_frame_image)
 upper_frame_image_label.place(relwidth=1, relheight=1)
-upper_frame.place(relx=0.5, rely=0.1, relwidth=0.8, relheight=0.8, anchor='n')
 #application title
 title = Label(upper_frame, text='Universal Downloader', font=50)
-title.place(relx=0.5, rely=0.1, relwidth=0.4, relheight=0.3, anchor='n')
+title.place(relx=0.5, rely=0.1, relwidth=0.4, relheight=0.15, anchor='n')
 entry = Entry(upper_frame)
 entry.place(relx=0.5, rely=0.3, relwidth=0.4, relheight=0.1, anchor='n')
 buttons()
