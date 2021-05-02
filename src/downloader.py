@@ -39,14 +39,9 @@ def download(options, link):
 
 
 def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
-    try:
-        # PyInstaller creates a temp folder and stores path in _MEIPASS
-        base_path = sys._MEIPASS
-    except Exception:
-        base_path = os.path.abspath("./data")
-
-    return os.path.join(base_path, relative_path)
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("./data"), relative_path)
 
 
 def clear_text():
@@ -116,7 +111,7 @@ def buttons():
 
 #application background image
 background_image = ImageTk.PhotoImage(
-    file=r"C:\Users\owenw\vscode\projects\Iproject\data\background1.png")
+    file=resource_path("background1.png"))
 background_label = Label(root, image=background_image, bd=0)
 background_label.place(x=0, y=0)
 #upper upper_frame
@@ -127,7 +122,7 @@ upper_frame.place(relx=0.5,
                   relheight=0.75,
                   anchor='n')
 upper_frame_image = ImageTk.PhotoImage(
-    file=r"C:\Users\owenw\vscode\projects\Iproject\data\background2.jpg")
+    file=resource_path('background2.jpg'))
 upper_frame_image_label = Label(upper_frame, image=upper_frame_image)
 upper_frame_image_label.place(relwidth=1, relheight=1)
 #application title
