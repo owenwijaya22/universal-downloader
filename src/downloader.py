@@ -30,7 +30,7 @@ def download(options, link):
             video_title = info_dict.get('title', None)
             download_label = Label(upper_frame,
                                    text=f'{video_title} is downloaded')
-            download_label.place(relx=0.5, rely=0.3, relheight=0.1, anchor='n')
+            download_label.place(relx=0.5, rely=0.5, relheight=0.1, anchor='n')
             download_label.after(2000, lambda: download_label.destroy())
         except Exception as e:
             error_label = Label(upper_frame, text={e})
