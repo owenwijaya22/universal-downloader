@@ -1,8 +1,7 @@
 import youtube_dl
-import json
 from time import sleep as s
 from tkinter import *
-from PIL import Image, ImageTk
+from PIL import ImageTk
 import sys
 import os
 
