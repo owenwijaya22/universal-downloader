@@ -58,10 +58,7 @@ def get_m4a():
 
 def get_mp4():
     link = entry.get()
-    options = {
-        'noplaylist': True,
-        'format': 'bestvideo[ext=mp4]+bestaudio[ext=wav]/best'
-    }
+    options = {'noplaylist': True, 'format': 'bestvideo+bestaudio/best'}
     download(options, link)
 
 
@@ -109,8 +106,7 @@ def buttons():
 
 
 #application background image
-background_image = ImageTk.PhotoImage(
-    file=resource_path("background1.png"))
+background_image = ImageTk.PhotoImage(file=resource_path("background1.png"))
 background_label = Label(root, image=background_image, bd=0)
 background_label.place(x=0, y=0)
 #upper upper_frame
@@ -120,8 +116,7 @@ upper_frame.place(relx=0.5,
                   relwidth=0.75,
                   relheight=0.75,
                   anchor='n')
-upper_frame_image = ImageTk.PhotoImage(
-    file=resource_path('background2.jpg'))
+upper_frame_image = ImageTk.PhotoImage(file=resource_path('background2.jpg'))
 upper_frame_image_label = Label(upper_frame, image=upper_frame_image)
 upper_frame_image_label.place(relwidth=1, relheight=1)
 #application title
