@@ -59,7 +59,7 @@ def get_m4a():
 
 def get_mp4():
     link = entry.get()
-    options = {'noplaylist': True, 'format': 'bestvideo+bestaudio/best', 'quiet': True}
+    options = {'noplaylist': True, 'format': 'best', 'quiet': True}
     download(options, link)
 
 
