@@ -51,6 +51,7 @@ def get_m4a():
     link = entry.get()
     options = {
         'noplaylist': True,
+        'quiet': True,
         'format': 'bestaudio[ext=m4a]',
     }
     download(options, link)
@@ -58,19 +59,19 @@ def get_m4a():
 
 def get_mp4():
     link = entry.get()
-    options = {'noplaylist': True, 'format': 'bestvideo+bestaudio/best'}
+    options = {'noplaylist': True, 'format': 'bestvideo+bestaudio/best', 'quiet': True}
     download(options, link)
 
 
 def get_mp3():
     link = entry.get()
-    options = {'noplaylist': True, 'format': 'bestaudio[ext=mp3]'}
+    options = {'noplaylist': True, 'format': 'bestaudio[ext=mp3]', 'quiet': True}
     download(options, link)
 
 
 def get_wav():
     link = entry.get()
-    options = {'noplaylist': True, 'format': 'bestaudio[ext=wav]'}
+    options = {'noplaylist': True, 'format': 'bestaudio[ext=wav]', 'quiet': True}
     download(options, link)
 
 
